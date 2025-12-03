@@ -1,12 +1,3 @@
-create database  BlogCMS;
-use BlogCMS;
---les drop des  tables
-drop table User;
-drop table Article;
-drop table categorie;
-drop table commentaire;
---les selects
-
 
 ------------------------------------------
 --La creation des tableaux 
@@ -45,7 +36,7 @@ VALUES
 ('vincent_gauthier', 'vincent.gauthier@protonmail.com', '$2y$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'editor', '2024-07-12 12:05:00'),
 ('marine_lebrun', 'marine.lebrun@gmail.com', '$2y$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'subscriber', '2024-07-20 15:20:00');
 
-select * from User;
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 create table categorie(
     id int primary key auto_increment,
@@ -63,7 +54,10 @@ INSERT INTO categorie(name, description) VALUES
 ('Éducation', 'Pédagogie, conseils d\'apprentissage et innovations éducatives'),
 ('Finance', 'Gestion budgétaire, investissements et actualités économiques'),
 ('Mode', 'Tendances, conseils style et actualités de la mode');
-select * from categorie;
+
+
+
+
 ---------------------------------------------
 create table commentaire(
   idc  int primary key auto_increment,
@@ -107,8 +101,6 @@ INSERT INTO commentaire(idU, author_name, email, content, created_at, post_id, s
 (4, 'Emma Morel', 'emma.morel@yahoo.fr', 'Je dors mal, merci pour ces conseils.', '2024-03-17 11:00:00', 23, 'approved'),
 (8,'Hugo Colin', 'hugo.colin@gmail.com', 'J\'ai visité certains villages, ils sont magnifiques !', '2024-03-18 09:15:00', 24, 'approved');
 
-SELECT * from commentaire;
-
 
 
 ----------------------------------------------------------------------------------------------------------
@@ -124,7 +116,7 @@ create table Article(
   status varchar(20),
   view_count int,
   constraint fk_User foreign key(user_id) references  User(idU),
-  constraint fk_categorie foreign key( category_id) references categorie(id)
+  constraint fk_categorie foreign key(category_id) references categorie(id)
 );
 
 INSERT INTO Article(title,content,image_url,created_at,updated_at,user_id,category_id,status,view_count) VALUES
@@ -158,5 +150,5 @@ INSERT INTO Article(title,content,image_url,created_at,updated_at,user_id,catego
 ('Les Techniques de Cuisson Santé','Cuire ses aliments tout en préservant les nutriments...','cuisine4.jpg','2024-10-10 16:45:00','2024-10-11 17:50:00',11,4,'published',543),
 ('Le CrossFit : Avantages et Risques','Analyse complète de cette discipline sportive...','sport4.jpg','2024-10-20 12:55:00','2024-10-21 13:00:00',13,5,'published',876),
 ('Apprendre par le Jeu : La Ludopédagogie','Utiliser le jeu comme outil d''apprentissage...','education4.jpg','2024-11-01 09:05:00','2024-11-02 10:10:00',15,6,'published',654);
-select * from article;
+
 
