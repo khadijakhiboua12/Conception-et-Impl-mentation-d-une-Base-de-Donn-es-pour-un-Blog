@@ -17,7 +17,7 @@ create table User(
    password_hash varchar(100),
    role varchar(20),
    created_at dateTime,
-   constraint ck_role check (role in('user','admin','editor','author','subscriber'))
+   constraint ck_role check (role in('admin','editor','author','subscriber'))
 );
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -45,6 +45,7 @@ VALUES
 ('vincent_gauthier', 'vincent.gauthier@protonmail.com', '$2y$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'editor', '2024-07-12 12:05:00'),
 ('marine_lebrun', 'marine.lebrun@gmail.com', '$2y$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'subscriber', '2024-07-20 15:20:00');
 
+select * from User;
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 create table categorie(
     id int primary key auto_increment,
@@ -62,7 +63,7 @@ INSERT INTO categorie(name, description) VALUES
 ('Éducation', 'Pédagogie, conseils d\'apprentissage et innovations éducatives'),
 ('Finance', 'Gestion budgétaire, investissements et actualités économiques'),
 ('Mode', 'Tendances, conseils style et actualités de la mode');
-
+select * from categorie;
 ---------------------------------------------
 create table commentaire(
   idc  int primary key auto_increment,
@@ -80,9 +81,9 @@ create table commentaire(
 ---------------------------------------------------------------
 --insertion donnes de commentaire
 INSERT INTO commentaire(idU, author_name, email, content, created_at, post_id, status) VALUES
-(1,'Jean Martin', 'jean.martin@email.com', 'Excellent article, très bien documenté !', '2024-02-21 12:30:00', 1, 'approved'),
-(2,'Sophie Leroy', 'sophie.leroy@gmail.com', 'Je ne suis pas tout à fait d\'accord sur certains points.', '2024-02-22 15:45:00', 1, 'approved'),
-(3,'Thomas Dubois', 'thomas.dubois@protonmail.com', 'Cela m\'a beaucoup aidé, merci pour ces conseils.', '2024-02-25 16:00:00', 2, 'approved'),
+(1, 'Jean Martin', 'jean.martin@email.com', 'Excellent article, très bien documenté !', '2024-02-21 12:30:00', 1, 'approved'),
+(2, 'Sophie Leroy', 'sophie.leroy@gmail.com', 'Je ne suis pas tout à fait d\'accord sur certains points.', '2024-02-22 15:45:00', 1, 'approved'),
+(3, 'Thomas Dubois', 'thomas.dubois@protonmail.com', 'Cela m\'a beaucoup aidé, merci pour ces conseils.', '2024-02-25 16:00:00', 2, 'approved'),
 (4,'Marie Petit', 'marie.petit@yahoo.fr', 'Très bel article, les photos sont magnifiques !', '2024-02-26 10:15:00', 3, 'pending'),
 (5,'Pierre Bernard', 'pierre.bernard@gmail.com', 'Je trouve que certains conseils sont dangereux.', '2024-02-27 14:20:00', 4, 'spam'),
 (6,'Julie Vincent', 'julie.vincent@email.com', 'Parfait pour les débutants comme moi, merci !', '2024-02-28 11:30:00', 5, 'approved'),
@@ -93,14 +94,20 @@ INSERT INTO commentaire(idU, author_name, email, content, created_at, post_id, s
 (11,'Nicolas Garnier', 'nicolas.garnier@protonmail.com', 'Les tendances présentées sont déjà dépassées.', '2024-03-04 14:45:00', 10, 'spam'),
 (12,'Élodie Chevalier', 'elodie.chevalier@yahoo.fr', 'Je vais essayer la recette ce week-end !', '2024-03-05 09:00:00', 11, 'approved'),
 (13,'Antoine Royer', 'antoine.royer@gmail.com', 'Bonnes astuces pour économiser, merci.', '2024-03-06 12:15:00', 12, 'approved'),
-(14,'Clara Ménard', 'clara.menard@email.com', 'Le style minimaliste n\'est pas pour tout le monde.', '2024-03-07 15:30:00', 13, 'pending'),
+(14, 'Clara Ménard', 'clara.menard@email.com', 'Le style minimaliste n\'est pas pour tout le monde.', '2024-03-07 15:30:00', 13, 'pending'),
 (15,'Quentin Gauthier', 'quentin.gauthier@protonmail.com', 'Très bon tutoriel sur l\'IA pour débutants.', '2024-03-08 11:45:00', 14, 'approved'),
 (16,'Amélie Lebrun', 'amelie.lebrun@yahoo.fr', 'La méditation a changé ma vie, merci pour l\'article.', '2024-03-09 09:00:00', 15, 'approved'),
-(17,'Marine Dubois', 'marine.dubois@email.com', 'Les plats marocains sont délicieux, merci.', '2024-03-11 16:30:00', 17, 'pending'),
-(18,'Alexandre Leroy', 'alexandre.leroy@protonmail.com', 'Je me prépare pour le ski, merci pour les conseils.', '2024-03-12 10:45:00', 18, 'approved'),
-(19,'Sarah Petit', 'sarah.petit@yahoo.fr', 'Quelles applications recommandez-vous pour les enfants ?', '2024-03-13 14:00:00', 19, 'approved'),
-(20,'Paul Bernard', 'paul.bernard@gmail.com', 'La bourse me fait peur, merci pour les explications.', '2024-03-14 09:15:00', 20, 'approved'),
+(17,'Vincent Martin', 'vincent.martin@gmail.com', 'Voyager avec un petit budget c\'est possible !', '2024-03-10 13:15:00', 16, 'approved'),
+(18,'Marine Dubois', 'marine.dubois@email.com', 'Les plats marocains sont délicieux, merci.', '2024-03-11 16:30:00', 17, 'pending'),
+(19,'Alexandre Leroy', 'alexandre.leroy@protonmail.com', 'Je me prépare pour le ski, merci pour les conseils.', '2024-03-12 10:45:00', 18, 'approved'),
+(20,'Sarah Petit', 'sarah.petit@yahoo.fr', 'Quelles applications recommandez-vous pour les enfants ?', '2024-03-13 14:00:00', 19, 'approved'),
+(2,'Paul Bernard', 'paul.bernard@gmail.com', 'La bourse me fait peur, merci pour les explications.', '2024-03-14 09:15:00', 20, 'approved'),
+(1,'Laura Vincent', 'laura.vincent@email.com', 'Je cherche justement un style casual chic, merci !', '2024-03-15 12:30:00', 21, 'pending'),
+(3,'Mathieu Roux', 'mathieu.roux@protonmail.com', 'Important de parler de sécurité informatique.', '2024-03-16 15:45:00', 22, 'approved'),
+(4, 'Emma Morel', 'emma.morel@yahoo.fr', 'Je dors mal, merci pour ces conseils.', '2024-03-17 11:00:00', 23, 'approved'),
+(8,'Hugo Colin', 'hugo.colin@gmail.com', 'J\'ai visité certains villages, ils sont magnifiques !', '2024-03-18 09:15:00', 24, 'approved');
 
+SELECT * from commentaire;
 
 
 
@@ -116,8 +123,8 @@ create table Article(
   category_id int ,
   status varchar(20),
   view_count int,
-  constraint fk_User foreign key(user_id ) references  User(idU),
-  constraint fk_categorie foreign key(category_id) references categorie(id)
+  constraint fk_User foreign key(user_id) references  User(idU),
+  constraint fk_categorie foreign key( category_id) references categorie(id)
 );
 
 INSERT INTO Article(title,content,image_url,created_at,updated_at,user_id,category_id,status,view_count) VALUES
@@ -140,7 +147,16 @@ INSERT INTO Article(title,content,image_url,created_at,updated_at,user_id,catego
 ('Introduction à l''Intelligence Artificielle','Comprendre les bases de l''IA et ses applications...','tech3.jpg','2024-06-15 13:25:00','2024-06-16 14:30:00',13,1,'published',1876),
 ('La Méditation pour Réduire le Stress','Techniques de méditation accessibles à tous...','sante3.jpg','2024-07-03 17:50:00','2024-07-04 18:45:00',15,2,'draft',0),
 ('Voyager avec un Petit Budget','Astuces pour voyager sans se ruiner...','voyage3.jpg','2024-07-12 12:05:00','2024-07-13 13:10:00',16,3,'published',765),
-('Les Plats Typiques de la Cuisine Marocaine','Découverte des saveurs et traditions culinaires du Maroc...','cuisine3.jpg','2024-07-20 15:20:00','2024-07-21 16:25:00',18,4,'published',1098)
+('Les Plats Typiques de la Cuisine Marocaine','Découverte des saveurs et traditions culinaires du Maroc...','cuisine3.jpg','2024-07-20 15:20:00','2024-07-21 16:25:00',18,4,'published',1098),
+('Préparation Physique pour le Ski','Conseils pour se préparer avant la saison de ski...','sport3.jpg','2024-08-01 09:30:00','2024-08-02 10:35:00',19,5,'draft',0),
+('Les Outils Numériques pour l''Éducation','Les meilleures applications pour apprendre et enseigner...','education3.jpg','2024-08-10 14:45:00','2024-08-11 15:50:00',20,6,'published',876),
+('Comprendre les Marchés Boursiers','Guide pour débutants en bourse...','finance3.jpg','2024-08-20 11:20:00','2024-08-21 12:25:00',3,7,'published',654),
+('Le Style Casual Chic au Bureau','Comment être élégant tout en restant confortable...','mode3.jpg','2024-09-01 16:30:00','2024-09-02 17:35:00',4,8,'published',432),
+('La Sécurité Informatique pour les Particuliers','Protégez vos données et votre vie privée en ligne...','tech4.jpg','2024-09-10 08:15:00','2024-09-11 09:20:00',5,1,'published',1567),
+('L''Importance du Sommeil pour la Santé','Comment améliorer la qualité de son sommeil...','sante4.jpg','2024-09-20 10:25:00','2024-09-21 11:30:00',6,2,'published',765),
+('Les Plus Beaux Villages de France','Découverte des villages classés parmi les plus beaux de France...','voyage4.jpg','2024-10-01 14:35:00','2024-10-02 15:40:00',9,3,'published',987),
+('Les Techniques de Cuisson Santé','Cuire ses aliments tout en préservant les nutriments...','cuisine4.jpg','2024-10-10 16:45:00','2024-10-11 17:50:00',11,4,'published',543),
+('Le CrossFit : Avantages et Risques','Analyse complète de cette discipline sportive...','sport4.jpg','2024-10-20 12:55:00','2024-10-21 13:00:00',13,5,'published',876),
+('Apprendre par le Jeu : La Ludopédagogie','Utiliser le jeu comme outil d''apprentissage...','education4.jpg','2024-11-01 09:05:00','2024-11-02 10:10:00',15,6,'published',654);
+select * from article;
 
---
-select * from Article;
