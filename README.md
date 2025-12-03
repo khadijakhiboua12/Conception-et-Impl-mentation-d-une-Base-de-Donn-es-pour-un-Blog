@@ -10,7 +10,7 @@ Elle permet de gérer :
 
 La base est conçue avec **MySQL** et utilise le langage **SQL** pour créer les tables, définir les relations et assurer l’intégrité des données.
 
-## Modèle Conceptuel des Données (MCD / ERD)
+## Modèle Conceptuel des Données (MCD)
 Le modèle comporte quatre entités principales :
 
 1. **Users** : stocke les informations des utilisateurs (nom, email, mot de passe, date de création)  
@@ -26,5 +26,5 @@ Le modèle comporte quatre entités principales :
 4. Interroger la base avec SQL pour gérer les articles et les commentaires
 
 ## Technologies
-- MySQL / MariaDB  
+- MySQL  
 - SQL pour la création et la manipulation des données
